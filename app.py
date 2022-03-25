@@ -1,3 +1,4 @@
+from turtle import color
 import streamlit as st
 import pandas as pd
 import seaborn as sns
@@ -77,17 +78,17 @@ with st.container():
         # st.pyplot()
 
         plt.figure(figsize=(16,7))
-        sns.distplot(df[df['target']==0]['age'],kde=False,bins=50, palette='mako')
+        sns.distplot(df[df['target']==0]['age'],kde=False,bins=50, color='mako')
         plt.title('Age of Heart Diseased Patients\n')
         st.pyplot()
 
         plt.figure(figsize=(16,7))
-        sns.distplot(df[df['target']==0]['chol'],kde=False,bins=40, palette='mako')
+        sns.distplot(df[df['target']==0]['chol'],kde=False,bins=40, color='mako')
         plt.title('Chol of Heart Diseased Patients\n')
         st.pyplot()
 
         plt.figure(figsize=(16,7))
-        sns.distplot(df[df['target']==0]['thalach'],kde=False,bins=40, palette='mako')
+        sns.distplot(df[df['target']==0]['thalach'],kde=False,bins=40, color='mako')
         plt.title('thalach of Heart Diseased Patients\n')
         st.pyplot()
 

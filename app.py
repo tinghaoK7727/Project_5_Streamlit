@@ -18,9 +18,9 @@ with st.container():
 
 
 
-    plt.figure(figsize=(12,10))
+    a = plt.figure(figsize=(12,10))
     sns.heatmap(df.corr(),annot=True,cmap="magma",fmt='.2f')
-
+    st.plotly_chart(a)
 
     df2 = df.copy()
 
@@ -50,6 +50,7 @@ with st.container():
 
     sns.countplot(data= df2, x='sex',hue='target')
     plt.title('Gender v/s target\n')
+    
 
 
     # sns.countplot(data= df2, x='cp',hue='target')
@@ -117,4 +118,4 @@ with st.container():
 
     # sns.pairplot(df,hue='cp')
 
-    plt.show()
+    

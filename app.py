@@ -14,7 +14,7 @@ with st.container():
     df = pd.read_csv('heart.csv')
     st.dataframe(df)
     st.bar_chart(df)
-    sns.lineplot(df)
+    # sns.lineplot(df)
 
 
 

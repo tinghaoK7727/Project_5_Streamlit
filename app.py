@@ -51,19 +51,19 @@ with st.container():
 
 
     with col1:
-        pal1 = sns.color_palette("mako", as_cmap=True) 
-        sns.countplot(data= df2, x='sex',hue='target')
+        # pal1 = sns.color_palette("mako", as_cmap=True) 
+        sns.countplot(data= df2, x='sex',hue='target', palette='mako')
         plt.title('Gender v/s target\n')
         
         st.pyplot()
 
 
-        sns.countplot(data= df2, x='cp',hue='target', palette=pal1)
+        sns.countplot(data= df2, x='cp',hue='target', palette='mako')
         plt.title('Chest Pain Type v/s target\n')
         st.pyplot()
 
 
-        sns.countplot(data= df2, x='sex',hue='thal')
+        sns.countplot(data= df2, x='sex',hue='thal', palette='mako')
         plt.title('Gender v/s Thalassemia\n')
         print('Thalassemia (thal-uh-SEE-me-uh) is an inherited blood disorder that causes your body to have less hemoglobin than normal. Hemoglobin enables red blood cells to carry oxygen')
         st.pyplot()
@@ -77,17 +77,17 @@ with st.container():
         # st.pyplot()
 
         plt.figure(figsize=(16,7))
-        sns.distplot(df[df['target']==0]['age'],kde=False,bins=50)
+        sns.distplot(df[df['target']==0]['age'],kde=False,bins=50, palette='mako')
         plt.title('Age of Heart Diseased Patients\n')
         st.pyplot()
 
         plt.figure(figsize=(16,7))
-        sns.distplot(df[df['target']==0]['chol'],kde=False,bins=40)
+        sns.distplot(df[df['target']==0]['chol'],kde=False,bins=40, palette='mako')
         plt.title('Chol of Heart Diseased Patients\n')
         st.pyplot()
 
         plt.figure(figsize=(16,7))
-        sns.distplot(df[df['target']==0]['thalach'],kde=False,bins=40)
+        sns.distplot(df[df['target']==0]['thalach'],kde=False,bins=40, palette='mako')
         plt.title('thalach of Heart Diseased Patients\n')
         st.pyplot()
 

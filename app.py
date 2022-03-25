@@ -97,25 +97,26 @@ with st.container():
 
 
     with col2:
+
         sns.color_palette("mako", as_cmap=True) 
         pal = sns.light_palette("blue", as_cmap=True)
         print('Age vs trestbps(Heart Diseased Patinets)')
         sns.jointplot(data=df3, x='age', y='trestbps', kind='hex', cmap='Reds')
         st.pyplot()
 
-        sns.jointplot(data=df3, x='chol', y='age', kind='kde', cmap='PuBu')
-        st.pyplot()
+        # sns.jointplot(data=df3, x='chol', y='age', kind='kde', cmap='PuBu')
+        # st.pyplot()
 
 
-        sns.jointplot(data=df3, x='chol', y='trestbps', kind='resid')
-        st.pyplot()
+        # sns.jointplot(data=df3, x='chol', y='trestbps', kind='resid')
+        # st.pyplot()
 
         sns.boxplot(data=df2,x='target',y='age')
         st.pyplot()
 
-        plt.figure(figsize=(14,8))
-        sns.violinplot(data=df2,x='ca',y='age',hue='target')
-        st.pyplot()
+        # plt.figure(figsize=(14,8))
+        # sns.violinplot(data=df2,x='ca',y='age',hue='target')
+        # st.pyplot()
 
         sns.boxplot(data=df2,x='cp',y='thalach',hue='target')
         st.pyplot()

@@ -3,7 +3,6 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-
 # def countPlot():
 #     fig = plt.figure(figsize=(10, 4))
 #     sns.countplot(x = "year", data = df)
@@ -18,9 +17,9 @@ with st.container():
 
 
 
-    a = plt.figure(figsize=(12,10))
+    plt.figure(figsize=(12,10))
     sns.heatmap(df.corr(),annot=True,cmap="magma",fmt='.2f')
-    st.plotly_chart(a)
+    st.pyplot()
 
     df2 = df.copy()
 

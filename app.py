@@ -35,13 +35,13 @@ with st.container():
 
     df2['sex'] = df2['sex'].apply(chng)
 
-    def chng2(prob):
-        if prob == 0:
-            return 'Heart Disease'
-        else:
-            return 'No Heart Disease'
+    # def chng2(prob):
+    #     if prob == 0:
+    #         return 'Heart Disease'
+    #     else:
+    #         return 'No Heart Disease'
 
-    df2['target'] = df2['target'].apply(chng2)
+    # df2['target'] = df2['target'].apply(chng2)
 
 
 

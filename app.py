@@ -35,7 +35,7 @@ with st.container():
 
     df2['sex'] = df2['sex'].apply(chng)
 
-    st.dataframe(df2)
+
 
     # def chng2(prob):
     #     if prob == 0:
@@ -48,8 +48,8 @@ with st.container():
 
 
 
-    # sns.countplot(data= df2, x='sex',hue='target')
-    # plt.title('Gender v/s target\n')
+    sns.countplot(data= df2, x='sex',hue='target')
+    plt.title('Gender v/s target\n')
 
 
     # sns.countplot(data= df2, x='cp',hue='target')
@@ -117,4 +117,4 @@ with st.container():
 
     # sns.pairplot(df,hue='cp')
 
-    
+    plt.show()

@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pandas as pd
 import seaborn as sns
@@ -78,17 +77,17 @@ with st.container():
         # st.pyplot()
 
         plt.figure(figsize=(16,7))
-        sns.distplot(df[df['target']==0]['age'],kde=False,bins=50, color='mako')
+        sns.distplot(df[df['target']==0]['age'],kde=False,bins=50, color='blue')
         plt.title('Age of Heart Diseased Patients\n')
         st.pyplot()
 
         plt.figure(figsize=(16,7))
-        sns.distplot(df[df['target']==0]['chol'],kde=False,bins=40, color='mako')
+        sns.distplot(df[df['target']==0]['chol'],kde=False,bins=40, color='blue')
         plt.title('Chol of Heart Diseased Patients\n')
         st.pyplot()
 
         plt.figure(figsize=(16,7))
-        sns.distplot(df[df['target']==0]['thalach'],kde=False,bins=40, color='mako')
+        sns.distplot(df[df['target']==0]['thalach'],kde=False,bins=40, color='blue')
         plt.title('thalach of Heart Diseased Patients\n')
         st.pyplot()
 
@@ -112,28 +111,28 @@ with st.container():
         # sns.jointplot(data=df3, x='chol', y='trestbps', kind='resid')
         # st.pyplot()
 
-        sns.boxplot(data=df2,x='target',y='age')
+        sns.boxplot(data=df2,x='target',y='age', palette='mako')
         st.pyplot()
 
         # plt.figure(figsize=(14,8))
         # sns.violinplot(data=df2,x='ca',y='age',hue='target')
         # st.pyplot()
 
-        sns.boxplot(data=df2,x='cp',y='thalach',hue='target')
+        sns.boxplot(data=df2,x='cp',y='thalach',hue='target', palette='mako')
         st.pyplot()
 
         plt.figure(figsize=(10,7))
-        sns.boxplot(data=df2,x='fbs',y='trestbps',hue='target')
+        sns.boxplot(data=df2,x='fbs',y='trestbps',hue='target', palette='mako')
         st.pyplot()
 
     with col3:
 
         plt.figure(figsize=(10,7))
-        sns.violinplot(data=df2,x='exang',y='oldpeak',hue='target')
+        sns.violinplot(data=df2,x='exang',y='oldpeak',hue='target', palette='mako')
         st.pyplot()
 
         plt.figure(figsize=(10,7))
-        sns.boxplot(data=df2,x='slope',y='thalach',hue='target')
+        sns.boxplot(data=df2,x='slope',y='thalach',hue='target', palette='mako')
         st.pyplot()
 
         # sns.violinplot(data=df2,x='thal',y='oldpeak',hue='target')

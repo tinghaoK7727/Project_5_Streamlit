@@ -21,7 +21,7 @@ with st.container():
 
     plt.figure(figsize=(12,10))
     sns.heatmap(df.corr(),annot=True,cmap="magma",fmt='.2f')
-    
+    st.pyplot()
 
     df2 = df.copy()
 

@@ -93,15 +93,12 @@ with st.container():
 
         df3 = df[df['target'] == 0 ][['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach',
         'exang', 'oldpeak', 'slope', 'ca', 'thal', 'target']] 
-
-
-
     with col2:
 
         
         pal = sns.light_palette("blue", as_cmap=True)
         print('Age vs trestbps(Heart Diseased Patinets)')
-        sns.jointplot(data=df3, x='age', y='trestbps', kind='hex', cmap='Reds')
+        sns.jointplot(data=df3, x='age', y='trestbps', kind='hex', cmap='Bupu')
         st.pyplot()
 
         # sns.jointplot(data=df3, x='chol', y='age', kind='kde', cmap='PuBu')
@@ -141,7 +138,7 @@ with st.container():
         # sns.violinplot(data=df2,x='target',y='thalach')
         # st.pyplot()
 
-        sns.clustermap(df.corr(),annot=True)
+        sns.heatmap(df.corr(),annot=True, cmap='Bupu')
         st.pyplot()
 
         # sns.pairplot(df,hue='cp')

@@ -57,17 +57,6 @@ with st.container():
         
         st.pyplot()
 
-
-        sns.countplot(data= df2, x='cp',hue='target', palette='mako')
-        plt.title('Chest Pain Type v/s target\n')
-        st.pyplot()
-
-
-        sns.countplot(data= df2, x='sex',hue='thal', palette='mako')
-        plt.title('Gender v/s Thalassemia\n')
-        print('Thalassemia (thal-uh-SEE-me-uh) is an inherited blood disorder that causes your body to have less hemoglobin than normal. Hemoglobin enables red blood cells to carry oxygen')
-        st.pyplot()
-
         # sns.countplot(data= df2, x='slope',hue='target')
         # plt.title('Slope v/s Target\n') 
         # st.pyplot()
@@ -81,20 +70,22 @@ with st.container():
         plt.title('Age of Heart Diseased Patients\n')
         st.pyplot()
 
-        plt.figure(figsize=(16,7))
-        sns.distplot(df[df['target']==0]['chol'],kde=False,bins=40, color='blue')
-        plt.title('Chol of Heart Diseased Patients\n')
-        st.pyplot()
+        
 
-        plt.figure(figsize=(16,7))
-        sns.distplot(df[df['target']==0]['thalach'],kde=False,bins=40, color='blue')
-        plt.title('thalach of Heart Diseased Patients\n')
-        st.pyplot()
+        
 
         df3 = df[df['target'] == 0 ][['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach',
         'exang', 'oldpeak', 'slope', 'ca', 'thal', 'target']] 
     with col2:
 
+        sns.countplot(data= df2, x='cp',hue='target', palette='mako')
+        plt.title('Chest Pain Type v/s target\n')
+        st.pyplot()
+
+        plt.figure(figsize=(16,7))
+        sns.distplot(df[df['target']==0]['chol'],kde=False,bins=40, color='blue')
+        plt.title('Chol of Heart Diseased Patients\n')
+        st.pyplot()
         
         pal = sns.light_palette("blue", as_cmap=True)
         print('Age vs trestbps(Heart Diseased Patinets)')
@@ -123,6 +114,16 @@ with st.container():
         st.pyplot()
 
     with col3:
+
+        sns.countplot(data= df2, x='sex',hue='thal', palette='mako')
+        plt.title('Gender v/s Thalassemia\n')
+        print('Thalassemia (thal-uh-SEE-me-uh) is an inherited blood disorder that causes your body to have less hemoglobin than normal. Hemoglobin enables red blood cells to carry oxygen')
+        st.pyplot()
+
+        plt.figure(figsize=(16,7))
+        sns.distplot(df[df['target']==0]['thalach'],kde=False,bins=40, color='blue')
+        plt.title('thalach of Heart Diseased Patients\n')
+        st.pyplot()
 
         plt.figure(figsize=(10,7))
         sns.violinplot(data=df2,x='exang',y='oldpeak',hue='target', palette='mako')

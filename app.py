@@ -8,6 +8,8 @@ import matplotlib.pyplot as plt
 #     sns.countplot(x = "year", data = df)
 #     st.pyplot(fig)
 
+# st.set_option('deprecation.showPyplotGlobalUse', False)
+
 with st.container():
     st.markdown('# Heart Conditions Analysis ')
     df = pd.read_csv('heart.csv')
@@ -19,7 +21,7 @@ with st.container():
 
     plt.figure(figsize=(12,10))
     sns.heatmap(df.corr(),annot=True,cmap="magma",fmt='.2f')
-    st.pyplot()
+    
 
     df2 = df.copy()
 
@@ -50,6 +52,7 @@ with st.container():
     sns.countplot(data= df2, x='sex',hue='target')
     plt.title('Gender v/s target\n')
     
+    st.pyplot()
 
 
     # sns.countplot(data= df2, x='cp',hue='target')

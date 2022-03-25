@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-from sklearn.ensemble import ExtraTreesClassifier
+
 
 # def countPlot():
 #     fig = plt.figure(figsize=(10, 4))

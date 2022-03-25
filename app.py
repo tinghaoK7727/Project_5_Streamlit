@@ -13,6 +13,7 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 with st.container():
     st.markdown('# Heart Conditions Analysis ')
     df = pd.read_csv('heart.csv')
+    st.sidebar.header('This is the sidebar')
     col1, col2, col3 = st.columns(3)
     # st.dataframe(df)
     # st.bar_chart(df)
@@ -95,7 +96,7 @@ with st.container():
 
 
     with col2:
-        
+
         pal = sns.light_palette("blue", as_cmap=True)
         print('Age vs trestbps(Heart Diseased Patinets)')
         sns.jointplot(data=df3, x='age', y='trestbps', kind='hex', cmap='Reds')

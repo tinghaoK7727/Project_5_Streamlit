@@ -13,9 +13,9 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 with st.container():
     st.markdown('# Heart Conditions Analysis ')
     df = pd.read_csv('heart.csv')
-    col1, col2 = st.columns(2)
-    st.dataframe(df)
-    st.bar_chart(df)
+    col1, col2, col3 = st.columns(3)
+    # st.dataframe(df)
+    # st.bar_chart(df)
     # sns.lineplot(df)
 
 
@@ -95,6 +95,7 @@ with st.container():
 
 
     with col2:
+        
         pal = sns.light_palette("blue", as_cmap=True)
         print('Age vs trestbps(Heart Diseased Patinets)')
         sns.jointplot(data=df3, x='age', y='trestbps', kind='hex', cmap='Reds')
@@ -120,6 +121,8 @@ with st.container():
         plt.figure(figsize=(10,7))
         sns.boxplot(data=df2,x='fbs',y='trestbps',hue='target')
         st.pyplot()
+
+    with col3:
 
         plt.figure(figsize=(10,7))
         sns.violinplot(data=df2,x='exang',y='oldpeak',hue='target')

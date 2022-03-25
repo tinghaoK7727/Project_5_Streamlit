@@ -9,4 +9,4 @@ with st.container():
     # st.file_uploader(label='upload .csv', type='csv')
     df = pd.read_csv('heart.csv')
     st.dataframe(df)
-
+    st.bar_chart(df)

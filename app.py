@@ -9,11 +9,12 @@ import matplotlib.pyplot as plt
 #     st.pyplot(fig)
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
+st.set_page_config(layout="wide")
 
 with st.container():
     st.markdown('# Heart Conditions Analysis ')
     df = pd.read_csv('heart.csv')
-    st.sidebar.header('This is the sidebar')
+    # st.sidebar.header('This is the sidebar')
     col1, col2, col3 = st.columns(3)
     # st.dataframe(df)
     # st.bar_chart(df)
@@ -67,13 +68,13 @@ with st.container():
         print('Thalassemia (thal-uh-SEE-me-uh) is an inherited blood disorder that causes your body to have less hemoglobin than normal. Hemoglobin enables red blood cells to carry oxygen')
         st.pyplot()
 
-        sns.countplot(data= df2, x='slope',hue='target')
-        plt.title('Slope v/s Target\n') 
-        st.pyplot()
+        # sns.countplot(data= df2, x='slope',hue='target')
+        # plt.title('Slope v/s Target\n') 
+        # st.pyplot()
 
-        sns.countplot(data= df2, x='exang',hue='thal')
-        plt.title('exang v/s Thalassemia\n')
-        st.pyplot()
+        # sns.countplot(data= df2, x='exang',hue='thal')
+        # plt.title('exang v/s Thalassemia\n')
+        # st.pyplot()
 
         plt.figure(figsize=(16,7))
         sns.distplot(df[df['target']==0]['age'],kde=False,bins=50)
@@ -96,7 +97,7 @@ with st.container():
 
 
     with col2:
-
+        sns.color_palette("mako", as_cmap=True) 
         pal = sns.light_palette("blue", as_cmap=True)
         print('Age vs trestbps(Heart Diseased Patinets)')
         sns.jointplot(data=df3, x='age', y='trestbps', kind='hex', cmap='Reds')
@@ -133,8 +134,8 @@ with st.container():
         sns.boxplot(data=df2,x='slope',y='thalach',hue='target')
         st.pyplot()
 
-        sns.violinplot(data=df2,x='thal',y='oldpeak',hue='target')
-        st.pyplot()
+        # sns.violinplot(data=df2,x='thal',y='oldpeak',hue='target')
+        # st.pyplot()
 
         sns.violinplot(data=df2,x='target',y='thalach')
         st.pyplot()
@@ -142,8 +143,8 @@ with st.container():
         sns.clustermap(df.corr(),annot=True)
         st.pyplot()
 
-        sns.pairplot(df,hue='cp')
-        st.pyplot()
+        # sns.pairplot(df,hue='cp')
+        # st.pyplot()
 
         
     # fig, [ax1, ax2, ax3, ax4, ax5, ax6, ax7, ax8, ax9, ax10] = plt.subplots()

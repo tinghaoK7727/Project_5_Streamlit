@@ -51,14 +51,14 @@ with st.container():
 
 
     with col1:
-
+        pal1 = sns.color_palette("mako", as_cmap=True) 
         sns.countplot(data= df2, x='sex',hue='target')
         plt.title('Gender v/s target\n')
         
         st.pyplot()
 
 
-        sns.countplot(data= df2, x='cp',hue='target')
+        sns.countplot(data= df2, x='cp',hue='target', palette=pal1)
         plt.title('Chest Pain Type v/s target\n')
         st.pyplot()
 
@@ -98,7 +98,7 @@ with st.container():
 
     with col2:
 
-        sns.color_palette("mako", as_cmap=True) 
+        
         pal = sns.light_palette("blue", as_cmap=True)
         print('Age vs trestbps(Heart Diseased Patinets)')
         sns.jointplot(data=df3, x='age', y='trestbps', kind='hex', cmap='Reds')
@@ -138,8 +138,8 @@ with st.container():
         # sns.violinplot(data=df2,x='thal',y='oldpeak',hue='target')
         # st.pyplot()
 
-        sns.violinplot(data=df2,x='target',y='thalach')
-        st.pyplot()
+        # sns.violinplot(data=df2,x='target',y='thalach')
+        # st.pyplot()
 
         sns.clustermap(df.corr(),annot=True)
         st.pyplot()

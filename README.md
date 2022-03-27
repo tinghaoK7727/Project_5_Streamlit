@@ -21,12 +21,6 @@ As our data contains only numeric values, there is not much data cleaning needed
 Our target audience for the dashboard would be public health institutions wishing to grasp some information about the population regarding heart attacks and its potential causes and possible triggers. Through reviewing the dashboard, the audience should be able to know what elements are more prompt to cause heart attacks and what are not necessarily related.
 
 
-**Data exploration:**
-
-By applying a correlation heatmap, we found that there are some correlations between certain columns: max 
-We have discovered that the tendency of heart attack is the most related to XXXXXX and we would based on this observation to build our dashboard.
-
-
 **Charts and Widgets:**
 1. st.expander(): to save more space and to better organize the display of our charts
 2. Bar chart - gender vs target: to show the head counts of heart attacked population by gender

@@ -23,17 +23,20 @@ Our target audience for the dashboard would be public health institutions wishin
 
 **Charts and Widgets:**
 1. st.expander(): to save more space and to better organize the display of our charts
-2. Bar chart - gender vs target: to show the head counts of heart attacked population by gender
-3. Bar chart - chest pain type vs target: to show the counts of heart attacked people by each chest pain type 
-4. Bar chart - gender vs Thalassemia: to show the counts of each type of Thalassemia by gender
-5. Histogram - age vs target: to show the distribution of heart attacked population by age
-6. Histogram - cholesterol vs target: to show the distribution of heart attacked population by cholesterol level
-7. Histogram - thalach vs target: to show the distribution of heart attacked population by thalach (maximum heart rate)
-8. Boxplot - age vs target: to show show the difference in interquartile range of heart attacked and non heart attacked people
-9. Boxplot - chest pain type vs thalach: to observe if there's correlation between chest pain type and maximum heart rate (all heart attacked chest pain cases have a higher maximum heart rate than non heart attacked ones)
-10. Boxplot - fasting blood sugar vs resting blood pressure: to see if there's a correlation bewteen blood sugar and resting blood pressure (heart attacked cases in general have a lower resting blood pressure than no heart attacked ones)
-11. Violin plot - exang (exercise angina) vs oldpeak (ST depression), heart attacked ones have in general more cases with oldpeak at 0
-12. Heatmap - to desmonstrate a quick look on potential correlations of all elements
+2. st.multiselect(): to demonstrate reactive histogram by selecting one or various indicators
+3. st.slider(): to choose the number of bins of the histogram
+4. st.selectbox(): to choose different x-axis and y-axis to display the corresponding chart
+5. Bar chart - gender vs target: to show the head counts of heart attacked population by gender
+6. Bar chart - chest pain type vs target: to show the counts of heart attacked people by each chest pain type 
+7. Bar chart - gender vs Thalassemia: to show the counts of each type of Thalassemia by gender
+8. Histogram - age vs target: to show the distribution of heart attacked population by age
+9. Histogram - cholesterol vs target: to show the distribution of heart attacked population by cholesterol level
+10. Histogram - thalach vs target: to show the distribution of heart attacked population by thalach (maximum heart rate)
+11. Boxplot - age vs target: to show show the difference in interquartile range of heart attacked and non heart attacked people
+12. Boxplot - chest pain type vs thalach: to observe if there's correlation between chest pain type and maximum heart rate (all heart attacked chest pain cases have a higher maximum heart rate than non heart attacked ones)
+13. Boxplot - fasting blood sugar vs resting blood pressure: to see if there's a correlation bewteen blood sugar and resting blood pressure (heart attacked cases in general have a lower resting blood pressure than no heart attacked ones)
+14. Violin plot - exang (exercise angina) vs oldpeak (ST depression), heart attacked ones have in general more cases with oldpeak at 0
+15. Heatmap - to desmonstrate a quick look on potential correlations of all elements
 
 
 **Conclusions:**

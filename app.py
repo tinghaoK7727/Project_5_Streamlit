@@ -28,8 +28,7 @@ with st.container():
     st.markdown('# Heart Conditions Analysis ')
     st.dataframe(df)
     st.sidebar.header('Change parameters')
-    # xBox = st.sidebar.selectbox(label = 'X Axis', options=df3.columns, index= )
-
+    
     
     with st.expander(label='Static Charts', expanded=True):
         col1, col2, col3 = st.columns(3)
@@ -51,6 +50,11 @@ with st.container():
             sns.boxplot(data=df2,x='target',y='age', palette='mako')
             st.pyplot()
 
+            sns.boxplot(data=df2,x='cp',y='thalach',hue='target', palette='mako')
+            st.pyplot()
+
+
+
 
         with col2:
 
@@ -61,10 +65,12 @@ with st.container():
             plt.figure(figsize=(16,7))
             sns.distplot(df[df['target']==0]['chol'],kde=False,bins=40, color='blue')
             plt.title('Chol of Heart Diseased Patients\n')
-            st.pyplot()            
+            st.pyplot()       
 
-            sns.boxplot(data=df2,x='cp',y='thalach',hue='target', palette='mako')
-            st.pyplot()
+            sns.heatmap(df.corr(),annot=True, cmap='BuPu')
+            st.pyplot()     
+
+            
 
             plt.figure(figsize=(10,7))
             sns.boxplot(data=df2,x='fbs',y='trestbps',hue='target', palette='mako')
@@ -103,12 +109,13 @@ with st.container():
             pal = sns.light_palette("blue", as_cmap=True)
             print('Age vs trestbps(Heart Diseased Patinets)')
             # sns.jointplot(data=df3, x='age', y='trestbps', kind='hex', cmap='BuPu')
-            sns.jointplot(data=df3, x='age', y='trestbps', kind='hex', cmap='BuPu')
+            sns.jointplot(data=df3, x=xBox, y=yBox, kind='hex', cmap='BuPu')
             st.pyplot()
 
         with col5:
-            sns.heatmap(df.corr(),annot=True, cmap='BuPu')
-            st.pyplot()
+            xBox = st.sidebar.selectbox(label = 'X Axis', options=df3.columns, index=1)
+            yBox = st.sidebar.selectbox(label = 'Y Axis', options=df3.columns, index=4)
+            
 
             
         # fig, [ax1, ax2, ax3, ax4, ax5, ax6, ax7, ax8, ax9, ax10] = plt.subplots()

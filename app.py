@@ -38,8 +38,8 @@ with st.container():
             st.sidebar.header('Histogram Parameters')
             hist_labels = st.sidebar.multiselect(label='choose categories to be plotted in histogram', options = df3.columns, default='age')
             size_of_bins = st.sidebar.select_slider(label='Number of bins', options=range(1,16), value=3)
-            
-            plt.hist(x=[df3[str(i)] for i in hist_labels], bins=size_of_bins, color='blue')
+            st.header(', '.join(hist_labels) + ' with ' + str(size_of_bins) + ' bin(s)')
+            plt.hist(x=[df3[str(i)] for i in hist_labels], bins=size_of_bins, color='BuPu')
             st.pyplot()
             
 

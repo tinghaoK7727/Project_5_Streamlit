@@ -27,9 +27,36 @@ df3 = df2[df2['target'] == 0 ][['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', '
 with st.container():
     st.markdown('# Heart Conditions Analysis ')
     # st.dataframe(df)
-    st.sidebar.header('Change parameters')
+    # st.sidebar.header('Change parameters')
     
-    
+    with st.expander(label='Interactive charts', expanded=True):
+
+        col4, col5 = st.columns(2)
+
+        with col4:
+            
+            st.sidebar.header('Histogram Parameters')
+            hist_labels = st.sidebar.multiselect(label='choose categories to be plotted in histogram', options = df3.columns, default='age')
+            size_of_bins = st.sidebar.select_slider(label='Number of bins', options=range(1,16), value=3)
+            
+            plt.hist(x=[df3[str(i)] for i in hist_labels], bins=size_of_bins, color='blue')
+            st.pyplot()
+            
+
+        
+
+
+        with col5:
+            xBox = str(st.sidebar.selectbox("X Axis", df3.columns, index=0))
+            yBox = str(st.sidebar.selectbox("Y Axis", df3.columns, index=3))
+            pal = sns.light_palette("blue", as_cmap=True)
+            st.header(xBox + ' vs '+ yBox)
+            # sns.jointplot(data=df3, x='age', y='trestbps', kind='hex', cmap='BuPu')
+            
+            # plt.hexbin(df3[xBox],df3[yBox], cmap='BuPu')
+            sns.jointplot(data=df3, x=df3[xBox], y=df3[yBox], kind='hex', cmap='BuPu')
+            st.pyplot()
+
     with st.expander(label='Static Charts', expanded=True):
         col1, col2, col3 = st.columns(3)
  
@@ -101,36 +128,7 @@ with st.container():
 
         
         
-    with st.expander(label='More Charts', expanded=True):
-
-        col4, col5 = st.columns(2)
-
-        with col4:
-            
-            
-            hist_labels = st.multiselect(label='choose categories to be plotted in histogram', options = df3.columns, default='age')
-            size_of_bins = st.select_slider(label='Number of bins', options=range(1,16))
-            
-            plt.hist(x=[df3[str(i)] for i in hist_labels], bins=size_of_bins, color='blue')
-            st.pyplot()
+    
             
 
-        
-
-
-        with col5:
-            xBox = str(st.selectbox("X Axis", df3.columns, index=0))
-            yBox = str(st.selectbox("Y Axis", df3.columns, index=3))
-            pal = sns.light_palette("blue", as_cmap=True)
-            st.header(xBox + ' vs '+ yBox)
-            # sns.jointplot(data=df3, x='age', y='trestbps', kind='hex', cmap='BuPu')
-            
-            # plt.hexbin(df3[xBox],df3[yBox], cmap='BuPu')
-            sns.jointplot(data=df3, x=df3[xBox], y=df3[yBox], kind='hex', cmap='BuPu')
-            st.pyplot()
-            
-
-            
-        # fig, [ax1, ax2, ax3, ax4, ax5, ax6, ax7, ax8, ax9, ax10] = plt.subplots()
-        # ax1.scatter([1, 2, 3], [1, 2, 3])
-        # st.pyplot(fig)
+       

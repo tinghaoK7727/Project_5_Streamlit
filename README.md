@@ -17,11 +17,10 @@ Data exploration:
 By applying a correlation heatmap, we found that there are some correlations between certain columns: (XXX)
 We have discovered that the tendency of heart attack is the most related to XXXXXX and we would based on this observation to build our dashboard.
 
-Charts used in the dashboard:
-> what? why?
+Charts and Widgets:
 
-Widgets used in the dashboard: 
-> what? why?
 
 Conclusions:
 
+
+Link to our presentation: https://docs.google.com/presentation/d/1gLmwOgY6x6DMrmDvgPK1pQrImiylZkfaO8-EeO290ZY/edit?usp=sharing

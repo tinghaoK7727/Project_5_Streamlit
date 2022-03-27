@@ -24,6 +24,9 @@ df2['sex'] = df2['sex'].apply(chng)
 df3 = df2[df2['target'] == 0 ][['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach',
     'exang', 'oldpeak', 'slope', 'ca', 'thal', 'target']] 
 
+df4 = df[df['target'] == 0 ][['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach',
+    'exang', 'oldpeak', 'slope', 'ca', 'thal', 'target']] 
+
 with st.container():
     st.markdown('# Heart Conditions Analysis ')
     # st.dataframe(df)
@@ -36,10 +39,10 @@ with st.container():
         with col4:
             
             st.sidebar.header('Histogram Parameters')
-            hist_labels = st.sidebar.multiselect(label='choose categories to be plotted in histogram', options = df3.columns, default='age')
+            hist_labels = st.sidebar.multiselect(label='choose categories to be plotted in histogram', options = df4.columns, default='age')
             size_of_bins = st.sidebar.select_slider(label='Number of bins', options=range(1,16), value=3)
             st.header(', '.join(hist_labels) + ' with ' + str(size_of_bins) + ' bin(s)')
-            plt.hist(x=[df3[str(i)] for i in hist_labels], bins=size_of_bins, color='BuPu')
+            plt.hist(x=[df4[str(i)] for i in hist_labels], bins=size_of_bins)
             st.pyplot()
             
 
@@ -56,6 +59,10 @@ with st.container():
             # plt.hexbin(df3[xBox],df3[yBox], cmap='BuPu')
             sns.jointplot(data=df3, x=df3[xBox], y=df3[yBox], kind='hex', cmap='BuPu')
             st.pyplot()
+
+
+        sns.heatmap(df.corr(),annot=True, cmap='BuPu')
+        st.pyplot()     
 
     with st.expander(label='Static Charts', expanded=True):
         col1, col2, col3 = st.columns(3)
@@ -94,8 +101,7 @@ with st.container():
             plt.title('Chol of Heart Diseased Patients\n')
             st.pyplot()       
 
-            sns.heatmap(df.corr(),annot=True, cmap='BuPu')
-            st.pyplot()     
+            
 
             
 

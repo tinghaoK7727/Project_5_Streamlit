@@ -101,23 +101,24 @@ with st.container():
 
         
         
-    with st.expander(label='Dynamic Chart', expanded=True):
+    with st.expander(label='More Charts', expanded=True):
 
         col4, col5 = st.columns(2)
 
         with col4:
 
-            xBox = str(st.sidebar.selectbox("X Axis", df3.columns, index=0))
-            yBox = str(st.sidebar.selectbox("Y Axis", df3.columns, index=3))
+            xBox = str(st.selectbox("X Axis", df3.columns, index=0))
+            yBox = str(st.selectbox("Y Axis", df3.columns, index=3))
 
 
         with col5:
             
             pal = sns.light_palette("blue", as_cmap=True)
             print('Age vs trestbps(Heart Diseased Patinets)')
-            # sns.jointplot(data=df3, x='age', y='trestbps', kind='hex', cmap='BuPu')
-            # sns.jointplot(data=df3, x=df3[xBox], y=df3[yBox], kind='hex', cmap='BuPu')
-            plt.hexbin(df3[xBox],df3[yBox])
+            sns.jointplot(data=df3, x='age', y='trestbps', kind='hex', cmap='BuPu')
+            
+            plt.hexbin(df3[xBox],df3[yBox], cmap='BuPu')
+            sns.jointplot(data=df3, x=df3[xBox], y=df3[yBox], kind='hex', cmap='BuPu')
             st.pyplot()
             
 

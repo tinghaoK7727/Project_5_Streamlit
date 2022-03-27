@@ -39,10 +39,10 @@ with st.container():
         with col4:
             
             st.sidebar.header('Histogram Parameters')
-            hist_labels = st.sidebar.multiselect(label='choose categories to be plotted in histogram', options = df4.columns, default='age')
+            hist_labels = st.sidebar.multiselect(label='Choose categories to be plotted in histogram', options = df3.columns, default='age')
             size_of_bins = st.sidebar.select_slider(label='Number of bins', options=range(1,16), value=3)
-            st.header(', '.join(hist_labels) + ' with ' + str(size_of_bins) + ' bin(s)')
-            plt.hist(x=[df4[str(i)] for i in hist_labels], bins=size_of_bins)
+            st.header((', '.join(hist_labels) + ' with ' + str(size_of_bins) + ' bin(s)').title())
+            plt.hist(x=[df3[str(i)] for i in hist_labels], bins=size_of_bins)
             st.pyplot()
             
 
@@ -50,19 +50,19 @@ with st.container():
 
 
         with col5:
+            st.sidebar.header('Hexbin chart parameters')
             xBox = str(st.sidebar.selectbox("X Axis", df3.columns, index=0))
             yBox = str(st.sidebar.selectbox("Y Axis", df3.columns, index=3))
             pal = sns.light_palette("blue", as_cmap=True)
-            st.header(xBox + ' vs '+ yBox)
+            st.header((xBox + ' vs '+ yBox).title())
             # sns.jointplot(data=df3, x='age', y='trestbps', kind='hex', cmap='BuPu')
             
             # plt.hexbin(df3[xBox],df3[yBox], cmap='BuPu')
-            sns.jointplot(data=df3, x=df3[xBox], y=df3[yBox], kind='hex', cmap='BuPu')
+            sns.jointplot(data=df4, x=df4[xBox], y=df4[yBox], kind='hex', cmap='BuPu')
             st.pyplot()
 
 
-        sns.heatmap(df.corr(),annot=True, cmap='BuPu')
-        st.pyplot()     
+        
 
     with st.expander(label='Static Charts', expanded=True):
         col1, col2, col3 = st.columns(3)
@@ -101,14 +101,12 @@ with st.container():
             plt.title('Chol of Heart Diseased Patients\n')
             st.pyplot()       
 
-            
-
-            
-
             plt.figure(figsize=(10,7))
             sns.boxplot(data=df2,x='fbs',y='trestbps',hue='target', palette='mako')
             st.pyplot()
 
+            sns.heatmap(df.corr(),annot=True, cmap='BuPu')
+            st.pyplot()     
 
         with col3:
 

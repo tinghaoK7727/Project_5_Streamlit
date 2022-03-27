@@ -13,7 +13,7 @@ A dataset of 304 rows and 14 columns about data on the tendency of heart attack 
 
 **Data Cleaning:**
 
-As our data contains only numeric values, there is not much data cleaning needed. Based on information found online, we have decided to replace all the numeric values in the gender column and the target column by text values, in order to faciliate further data analysis and interpretation.
+As our data contains only numeric values, there is not much data cleaning needed. Based on information found online, we have decided to replace all the numeric values in the gender column in order to faciliate further data analysis and interpretation.
 
 
 **Storytelling tactics:**

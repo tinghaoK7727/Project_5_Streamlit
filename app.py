@@ -106,15 +106,17 @@ with st.container():
         col4, col5 = st.columns(2)
 
         with col4:
+            
+            xBox = st.sidebar.selectbox(label = 'X Axis', options=df3.columns, index=1)
+            yBox = st.sidebar.selectbox(label = 'Y Axis', options=df3.columns, index=4)
+
+        with col5:
+            
             pal = sns.light_palette("blue", as_cmap=True)
             print('Age vs trestbps(Heart Diseased Patinets)')
             # sns.jointplot(data=df3, x='age', y='trestbps', kind='hex', cmap='BuPu')
             sns.jointplot(data=df3, x=xBox, y=yBox, kind='hex', cmap='BuPu')
             st.pyplot()
-
-        with col5:
-            xBox = st.sidebar.selectbox(label = 'X Axis', options=df3.columns, index=1)
-            yBox = st.sidebar.selectbox(label = 'Y Axis', options=df3.columns, index=4)
             
 
             

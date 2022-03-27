@@ -106,9 +106,9 @@ with st.container():
         col4, col5 = st.columns(2)
 
         with col4:
-            
-            xBox = st.sidebar.selectbox(label = 'X Axis', options=df3.columns, index=1)
-            yBox = st.sidebar.selectbox(label = 'Y Axis', options=df3.columns, index=4)
+
+            xBox = str(st.sidebar.selectbox(label = 'X Axis', options=df3.columns, index=1))
+            yBox = str(st.sidebar.selectbox(label = 'Y Axis', options=df3.columns, index=4))
 
         with col5:
             

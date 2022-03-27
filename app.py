@@ -106,19 +106,21 @@ with st.container():
         col4, col5 = st.columns(2)
 
         with col4:
+            
+            
+            hist_labels = st.multiselect(label='choose categories to be plotted in histogram', options = df3.columns, default='age')
+            size_of_bins = st.select_slider(label='Number of bins', options=range(1,16))
+            
+            plt.hist(x=[df3[str(i)] for i in hist_labels], bins=size_of_bins, color='blue')
+            st.pyplot()
+            
 
-            xBox = str(st.selectbox("X Axis", df3.columns, index=0))
-            yBox = str(st.selectbox("Y Axis", df3.columns, index=3))
-            hist_labels = st.sidebar.multiselect(label='choose categories to be plotted in histogram', options = df3.columns, default='age')
-            size_of_bins = st.sidebar.select_slider(label='Number of bins', options=range(1,16))
-            fig2, ax1 = plt.subplots()
-            ax1 = plt.hist(x=[df3[str(i)] for i in hist_labels], bins=size_of_bins)
-
-        st.pyplot(fig2)
+        
 
 
         with col5:
-            
+            xBox = str(st.selectbox("X Axis", df3.columns, index=0))
+            yBox = str(st.selectbox("Y Axis", df3.columns, index=3))
             pal = sns.light_palette("blue", as_cmap=True)
             st.header(xBox + ' vs '+ yBox)
             # sns.jointplot(data=df3, x='age', y='trestbps', kind='hex', cmap='BuPu')

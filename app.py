@@ -42,7 +42,7 @@ with st.container():
             st.pyplot()
 
             plt.figure(figsize=(16,7))
-            sns.distplot(df[df['target']==0]['age'],kde=False,bins=50, color='blue')
+            sns.distplot(df[df['target']==1]['age'],kde=False,bins=50, color='blue')
             plt.title('Age of Heart Diseased Patients\n')
             st.pyplot()
 
@@ -63,7 +63,7 @@ with st.container():
             st.pyplot()
 
             plt.figure(figsize=(16,7))
-            sns.distplot(df[df['target']==0]['chol'],kde=False,bins=40, color='blue')
+            sns.distplot(df[df['target']==1]['chol'],kde=False,bins=40, color='blue')
             plt.title('Chol of Heart Diseased Patients\n')
             st.pyplot()       
 
@@ -85,7 +85,7 @@ with st.container():
             st.pyplot()
 
             plt.figure(figsize=(16,7))
-            sns.distplot(df[df['target']==0]['thalach'],kde=False,bins=40, color='blue')
+            sns.distplot(df[df['target']==1]['thalach'],kde=False,bins=40, color='blue')
             plt.title('thalach of Heart Diseased Patients\n')
             st.pyplot()
 
@@ -107,8 +107,8 @@ with st.container():
 
         with col4:
 
-            xBox = str(st.sidebar.selectbox("X Axis", df3.columns, index=1))
-            yBox = str(st.sidebar.selectbox("Y Axis", df3.columns, index=4))
+            xBox = str(st.sidebar.selectbox("X Axis", df3.columns, index=0))
+            yBox = str(st.sidebar.selectbox("Y Axis", df3.columns, index=3))
 
 
         with col5:
@@ -116,7 +116,8 @@ with st.container():
             pal = sns.light_palette("blue", as_cmap=True)
             print('Age vs trestbps(Heart Diseased Patinets)')
             # sns.jointplot(data=df3, x='age', y='trestbps', kind='hex', cmap='BuPu')
-            sns.jointplot(data=df3, x=df3[xBox], y=df3[yBox], kind='hex', cmap='BuPu')
+            # sns.jointplot(data=df3, x=df3[xBox], y=df3[yBox], kind='hex', cmap='BuPu')
+            plt.hexbin(df3[xBox],df3[yBox])
             st.pyplot()
             
 

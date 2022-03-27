@@ -3,10 +3,6 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-# def countPlot():
-#     fig = plt.figure(figsize=(10, 4))
-#     sns.countplot(x = "year", data = df)
-#     st.pyplot(fig)
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 st.set_page_config(layout="wide")
@@ -55,9 +51,7 @@ with st.container():
             yBox = str(st.sidebar.selectbox("Y Axis", df3.columns, index=3))
             pal = sns.light_palette("blue", as_cmap=True)
             st.header((xBox + ' vs '+ yBox).title())
-            # sns.jointplot(data=df3, x='age', y='trestbps', kind='hex', cmap='BuPu')
-            
-            # plt.hexbin(df3[xBox],df3[yBox], cmap='BuPu')
+
             sns.jointplot(data=df4, x=df4[xBox], y=df4[yBox], kind='hex', cmap='BuPu')
             st.pyplot()
 

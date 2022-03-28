@@ -5,7 +5,8 @@ import matplotlib.pyplot as plt
 
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
-st.set_page_config(layout="wide")
+st.set_page_config(page_title='Heart Diseases Dashboard', layout="wide")
+
 df = pd.read_csv('heart.csv')
 df2 = df.copy()
 
@@ -24,7 +25,8 @@ df4 = df[df['target'] == 0 ][['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 're
     'exang', 'oldpeak', 'slope', 'ca', 'thal', 'target']] 
 
 with st.container():
-    st.markdown('# Heart Conditions Analysis ')
+    st.title('Heart Conditions Analysis ')
+    st.image('heart.jpg', width=1000)
     # st.dataframe(df)
     # st.sidebar.header('Change parameters')
     
@@ -38,7 +40,9 @@ with st.container():
             hist_labels = st.sidebar.multiselect(label='Choose categories to be plotted in histogram', options = df3.columns, default='age')
             size_of_bins = st.sidebar.select_slider(label='Number of bins', options=range(1,16), value=3)
             st.header((', '.join(hist_labels) + ' with ' + str(size_of_bins) + ' bin(s)').title())
+            plt.style.use('seaborn')
             plt.hist(x=[df4[str(i)] for i in hist_labels], bins=size_of_bins)
+            # sns.histplot(data=[df4[str(i)] for i in hist_labels], bins=size_of_bins)
             st.pyplot()
             
 

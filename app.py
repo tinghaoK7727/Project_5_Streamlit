@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
-st.set_page_config(page_tile='heart Diseases Dashboard', layout="wide")
+st.set_page_config(page_title='heart Diseases Dashboard', layout="wide")
 
 df = pd.read_csv('heart.csv')
 df2 = df.copy()

@@ -25,6 +25,7 @@ df4 = df[df['target'] == 0 ][['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 're
 
 with st.container():
     st.markdown('# Heart Conditions Analysis ')
+    st.image('heart.jpg')
     # st.dataframe(df)
     # st.sidebar.header('Change parameters')
     

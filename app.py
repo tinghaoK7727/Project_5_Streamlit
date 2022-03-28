@@ -45,10 +45,7 @@ with st.container():
             # sns.histplot(data=[df4[str(i)] for i in hist_labels], bins=size_of_bins)
             st.pyplot()
             
-
-        
-
-
+            
         with col5:
             st.sidebar.header('Hexbin chart parameters')
             xBox = str(st.sidebar.selectbox("X Axis", df3.columns, index=0))

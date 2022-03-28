@@ -42,12 +42,9 @@ with st.container():
             st.header((', '.join(hist_labels) + ' with ' + str(size_of_bins) + ' bin(s)').title())
             plt.style.use('seaborn')
             plt.hist(x=[df4[str(i)] for i in hist_labels], bins=size_of_bins)
-            # sns.histplot(data=[df4[str(i)] for i in hist_labels], bins=size_of_bins)
             st.pyplot()
+            # sns.histplot(data=[df4[str(i)] for i in hist_labels], bins=size_of_bins)
             
-
-        
-
 
         with col5:
             st.sidebar.header('Hexbin chart parameters')
